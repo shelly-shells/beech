@@ -1,36 +1,28 @@
+from echoLex import tokens
 from ply import yacc
 
-def p_echo(p):
-    '''s : echo eVar nVar starVar dollarVar args'''
+def p_statement(p):
+    '''statement : ECHO option STRING'''
     pass
 
-def p_minus_e(p):
-    '''eVar : -e | empty'''
-    pass
-
-def p_minus_n(p):
-    '''nVar : -n | empty'''
-    
-def p_star(p):
-    '''starVar : * | empty'''
-    pass
-
-def p_dollar(p):
-    '''dollarVar : $ | empty'''
-    pass
-
-def p_args(p):
-    '''args : ID args'''
-    pass
-
-def p_args_empty(p):
-    '''empty :'''
+def p_option(p):
+    ''' option : option options | empty'''
+    if len(p) > 1:
+        if not hasattr(p[-1], 'append'):
+            p[-1] = [p[-1]]
+        p[-1].append(p[1])
+    else:
+        p[0] = []
+        
+def p_empty(p):
+    'empty: '
     pass
 
 def p_error(p):
-    print("Syntax error")
-    pass
-
+    print("invalid syntaax")
+    
 parser = yacc.yacc()
-s = input("enter something\n")
-parser.parse(s)   
+
+x = input()
+parser.parse(x)
+
