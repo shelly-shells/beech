@@ -13,7 +13,7 @@ def t_VALUE(t):
     return t
 
 def t_COMMAND(t):
-    r'\$[a-zA-Z_][a-zA-Z0-9_]*'
+    r'\$[a-zA-Z_][a-zA-Z0-9_]*|[+\-*/=<>!&|]+'
     return t
 
 def t_error(t):

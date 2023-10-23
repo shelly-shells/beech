@@ -8,7 +8,8 @@ def p_for_loop(p):
 
 def p_values(p):
     '''
-        values : values value 
+        values : values value
+               | value 
     '''
 
 def p_value(p):
