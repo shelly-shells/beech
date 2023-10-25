@@ -1,0 +1,23 @@
+INFO:root:PLY: PARSE DEBUG START
+INFO:root:Action : Reduce rule [echo -> ECHO] with ['echo'] and goto state 2
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+INFO:root:Action : Reduce rule [empty -> <empty>] with [] and goto state 6
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+INFO:root:Action : Reduce rule [options -> empty] with [None] and goto state 4
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+INFO:root:Action : Reduce rule [string -> STRING] with ['-n'] and goto state 8
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+INFO:root:Action : Reduce rule [statement -> echo options string] with [None,None,None] and goto state 1
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+ERROR:root:Error  : statement . LexToken(STRING,'hi',1,8)
+ERROR:root:Error  : statement . error
+ERROR:root:Error  : . error
+ERROR:root:Error  : . $end
+INFO:root:PLY: PARSE DEBUG START
+INFO:root:Action : Reduce rule [echo -> ECHO] with ['echo'] and goto state 2
+INFO:root:Result : <NoneType @ 0x957cc0> (None)
+ERROR:root:Error  : echo . LexToken(STRING,'-n',1,5)
+ERROR:root:Error  : echo . error
+ERROR:root:Error  : . error
+ERROR:root:Error  : . LexToken(STRING,'hi',1,8)
+ERROR:root:Error  : . $end

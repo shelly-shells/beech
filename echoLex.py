@@ -1,26 +1,37 @@
 from ply import lex
 
-tokens = ("echo", "options", "string", "empty")
+tokens = ("ECHO", "STRING", "OPTION")
 
-t_echo = r'\\echo'
-t_options = r'\\(-[en]) | \* | \$'
+# t_ECHO = r'echo'
+t_OPTION = r'-[en]|\*|\$'
 
+precedence = (('left' , 'ECHO'), ('left','OPTION'), ('left', 'STRING'))
 
-def t_string(t):
-    r'\"[^\"]*\" | [^\t\n]+'     
-    if t.value[0] == '"':
-        t.value = t.value[1:-1]
+def t_ECHO(t):
+    r'echo'
+    return t
+
+def t_STRING(t):
+    r'\"[^\"]*\"|[^\n\t ]+'
     return t
 
 
+t_ignore = '    \t'
+
 def t_newline(t):
-    r"\n+"
+    r'\n+'
     t.lexer.lineno += len(t.value)
 
 
 def t_error(t):
-    print("Illegal character '%s'" % t.value[0])
+    print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
 
 lexer = lex.lex()
+lexer.input('echo -n "hi"')
+while True:
+    tok = lexer.token()
+    if not tok:
+        break  # No more input
+    print(tok)
