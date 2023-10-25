@@ -6,6 +6,7 @@ t_FOR = r'for'
 t_VAR = r'[a-zA-Z_][a-zA-Z0-9_]*'
 t_IN = r'in'
 t_DO = r'do'
+t_ignore = ' \t\n'
 
 def t_VALUE(t):
     r'\d+'
