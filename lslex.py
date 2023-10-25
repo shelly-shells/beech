@@ -1,39 +1,31 @@
 from ply import lex
 
-tokens = ("ECHO", "STRING", "OPTION")
+tokens = ("LS", "OPTION", "DIRECTORY")
 
-# t_ECHO = r'echo'
-# t_OPTION = r'-[en]|\*|\$'
-
-precedence = (('left' , 'ECHO'), ('left','OPTION'), ('left', 'STRING'))
-
-def t_ECHO(t):
-    r'echo'
+def t_LS(t):
+    r'ls'
     return t
 
 def t_OPTION(t):
-    r'-[en]|\*|\$'
+    r'-[alhRtsrudi]+|--help|--version|--all|--si'
     return t
 
-def t_STRING(t):
-    r'\"[^\"]*\"|[^\n\t ]+'
+def t_DIRECTORY(t):
+    r'(\/([a-zA-Z0-9])+)\/?+'
     return t
 
-
-t_ignore = '    \t'
+t_ignore ='   \t'
 
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
-
-
+    
 def t_error(t):
     print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
-
-
+    
 lexer = lex.lex()
-# lexer.input('echo -n -e "hi"')
+# lexer.input('ls /home/sus/hwow/')
 # while True:
 #     tok = lexer.token()
 #     if not tok:

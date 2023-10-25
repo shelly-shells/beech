@@ -3,42 +3,45 @@ Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 Grammar
 
 Rule 0     S' -> statement
-Rule 1     statement -> echo options string
-Rule 2     echo -> ECHO
-Rule 3     string -> STRING
-Rule 4     options -> option options
-Rule 5     options -> empty
-Rule 6     empty -> <empty>
-Rule 7     option -> OPTION
+Rule 1     statement -> ls option directory
+Rule 2     ls -> LS
+Rule 3     option -> option options
+Rule 4     option -> empty
+Rule 5     directory -> directories directory
+Rule 6     directory -> empty
+Rule 7     empty -> <empty>
+Rule 8     options -> OPTION
+Rule 9     directories -> DIRECTORY
 
 Terminals, with rules where they appear
 
-ECHO                 : 2
-OPTION               : 7
-STRING               : 3
+DIRECTORY            : 9
+LS                   : 2
+OPTION               : 8
 error                : 
 
 Nonterminals, with rules where they appear
 
-echo                 : 1
-empty                : 5
-option               : 4
-options              : 1 4
+directories          : 5
+directory            : 1 5
+empty                : 4 6
+ls                   : 1
+option               : 1 3
+options              : 3
 statement            : 0
-string               : 1
 
 Parsing method: LALR
 
 state 0
 
     (0) S' -> . statement
-    (1) statement -> . echo options string
-    (2) echo -> . ECHO
+    (1) statement -> . ls option directory
+    (2) ls -> . LS
 
-    ECHO            shift and go to state 3
+    LS              shift and go to state 3
 
     statement                      shift and go to state 1
-    echo                           shift and go to state 2
+    ls                             shift and go to state 2
 
 state 1
 
@@ -48,83 +51,113 @@ state 1
 
 state 2
 
-    (1) statement -> echo . options string
-    (4) options -> . option options
-    (5) options -> . empty
-    (7) option -> . OPTION
-    (6) empty -> .
+    (1) statement -> ls . option directory
+    (3) option -> . option options
+    (4) option -> . empty
+    (7) empty -> .
 
-    OPTION          shift and go to state 7
-    STRING          reduce using rule 6 (empty -> .)
+    OPTION          reduce using rule 7 (empty -> .)
+    DIRECTORY       reduce using rule 7 (empty -> .)
+    $end            reduce using rule 7 (empty -> .)
 
-    options                        shift and go to state 4
-    option                         shift and go to state 5
-    empty                          shift and go to state 6
+    option                         shift and go to state 4
+    empty                          shift and go to state 5
 
 state 3
 
-    (2) echo -> ECHO .
+    (2) ls -> LS .
 
-    OPTION          reduce using rule 2 (echo -> ECHO .)
-    STRING          reduce using rule 2 (echo -> ECHO .)
+    OPTION          reduce using rule 2 (ls -> LS .)
+    DIRECTORY       reduce using rule 2 (ls -> LS .)
+    $end            reduce using rule 2 (ls -> LS .)
 
 
 state 4
 
-    (1) statement -> echo options . string
-    (3) string -> . STRING
+    (1) statement -> ls option . directory
+    (3) option -> option . options
+    (5) directory -> . directories directory
+    (6) directory -> . empty
+    (8) options -> . OPTION
+    (9) directories -> . DIRECTORY
+    (7) empty -> .
 
-    STRING          shift and go to state 9
+    OPTION          shift and go to state 10
+    DIRECTORY       shift and go to state 11
+    $end            reduce using rule 7 (empty -> .)
 
-    string                         shift and go to state 8
+    directory                      shift and go to state 6
+    options                        shift and go to state 7
+    directories                    shift and go to state 8
+    empty                          shift and go to state 9
 
 state 5
 
-    (4) options -> option . options
-    (4) options -> . option options
-    (5) options -> . empty
-    (7) option -> . OPTION
-    (6) empty -> .
+    (4) option -> empty .
 
-    OPTION          shift and go to state 7
-    STRING          reduce using rule 6 (empty -> .)
+    OPTION          reduce using rule 4 (option -> empty .)
+    DIRECTORY       reduce using rule 4 (option -> empty .)
+    $end            reduce using rule 4 (option -> empty .)
 
-    option                         shift and go to state 5
-    options                        shift and go to state 10
-    empty                          shift and go to state 6
 
 state 6
 
-    (5) options -> empty .
+    (1) statement -> ls option directory .
 
-    STRING          reduce using rule 5 (options -> empty .)
+    $end            reduce using rule 1 (statement -> ls option directory .)
 
 
 state 7
 
-    (7) option -> OPTION .
+    (3) option -> option options .
 
-    OPTION          reduce using rule 7 (option -> OPTION .)
-    STRING          reduce using rule 7 (option -> OPTION .)
+    OPTION          reduce using rule 3 (option -> option options .)
+    DIRECTORY       reduce using rule 3 (option -> option options .)
+    $end            reduce using rule 3 (option -> option options .)
 
 
 state 8
 
-    (1) statement -> echo options string .
+    (5) directory -> directories . directory
+    (5) directory -> . directories directory
+    (6) directory -> . empty
+    (9) directories -> . DIRECTORY
+    (7) empty -> .
 
-    $end            reduce using rule 1 (statement -> echo options string .)
+    DIRECTORY       shift and go to state 11
+    $end            reduce using rule 7 (empty -> .)
 
+    directories                    shift and go to state 8
+    directory                      shift and go to state 12
+    empty                          shift and go to state 9
 
 state 9
 
-    (3) string -> STRING .
+    (6) directory -> empty .
 
-    $end            reduce using rule 3 (string -> STRING .)
+    $end            reduce using rule 6 (directory -> empty .)
 
 
 state 10
 
-    (4) options -> option options .
+    (8) options -> OPTION .
 
-    STRING          reduce using rule 4 (options -> option options .)
+    OPTION          reduce using rule 8 (options -> OPTION .)
+    DIRECTORY       reduce using rule 8 (options -> OPTION .)
+    $end            reduce using rule 8 (options -> OPTION .)
+
+
+state 11
+
+    (9) directories -> DIRECTORY .
+
+    DIRECTORY       reduce using rule 9 (directories -> DIRECTORY .)
+    $end            reduce using rule 9 (directories -> DIRECTORY .)
+
+
+state 12
+
+    (5) directory -> directories directory .
+
+    $end            reduce using rule 5 (directory -> directories directory .)
 
