@@ -11,7 +11,7 @@ def t_OPTION(t):
     return t
 
 def t_DIRECTORY(t):
-    r'(\/([a-zA-Z0-9])+)\/?+'
+    r'(\/([a-zA-Z0-9])+)+'
     return t
 
 t_ignore ='   \t'
@@ -25,7 +25,7 @@ def t_error(t):
     t.lexer.skip(1)
     
 lexer = lex.lex()
-# lexer.input('ls /home/sus/hwow/')
+# lexer.input('ls /home/sus/hwow')
 # while True:
 #     tok = lexer.token()
 #     if not tok:
