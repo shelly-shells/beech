@@ -28,6 +28,10 @@ def t_DO(t):
     r'do'
     return t
 
+def t_COMMAND(t):
+    r'statement'
+    return t
+
 def t_VAR(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
     return t
@@ -35,10 +39,6 @@ def t_VAR(t):
 def t_VALUE(t):
     r'\d+'
     t.value = int(t.value)
-    return t
-
-def t_COMMAND(t):
-    r'\$[a-zA-Z_][a-zA-Z0-9_]*|[+\-*/=<>!&|]+'
     return t
 
 def t_error(t):

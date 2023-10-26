@@ -8,13 +8,14 @@ def p_program(p):
 
 def p_statement(p):
     '''
-    statement : if_statement | other_statement
+    statement : if_statement 
+              | other_statement
     '''
 
 def p_if_statement(p):
     '''
     if_statement : IF condition THEN statement ENDIF
-                 | IF condition THEN statement elif_statments else_statement ENDIF
+                 | IF condition THEN statement elif_statements else_statement ENDIF
     '''
 
 def p_elif_statements(p):
@@ -36,12 +37,14 @@ def p_else_statement(p):
 
 def p_condition(p):
     '''
-    condition : expression COMPARISON expression
+    condition : expression COMPARISON expression 
+              | expression COMPARISON COMPARISON expression
     '''
 
 def p_expression(p):
     '''
-    expression : variable | constant
+    expression : variable 
+               | constant
     '''
 
 def p_variable(p):
@@ -51,7 +54,8 @@ def p_variable(p):
 
 def p_constant(p):
     '''
-    constant : NUMBER | STRING 
+    constant : NUMBER 
+             | STRING 
     '''
 
 def p_other_statement(p):
