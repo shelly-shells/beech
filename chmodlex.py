@@ -7,11 +7,11 @@ def t_CHMOD(t):
     return t
 
 def t_OPTION(t):
-    r'(\[1-7]{1,2,3})|[a|(ugx)*]?\[+|-][rwx]{1,2,3}'
+    r'([1-7]{3})|([a]|[ugo]{0,3})?(\+|\-)[rwx]{1,3}'
     return t
 
 def t_FILE(t):
-    r'(\/([a-zA-Z0-9])+)+'
+    r'([a-zA-Z0-9]+)\.([a-zA-Z0-9]+)'
     return t
 
 t_ignore = '  \t'
@@ -21,12 +21,12 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
     
 def t_error(t):
-    print(f"Illegal character '{t.value[0]}'")
+    # print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
     
     
 lexer = lex.lex()
-lexer.input("chmod +x hi.s")
+lexer.input("chmod ug-x hi.s")
 while True:
     x = lexer.token()
     if not x:

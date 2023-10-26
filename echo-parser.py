@@ -1,11 +1,11 @@
 from ply import yacc
 from echoLex import *
 
-import logging
-logging.basicConfig(
-    level=logging.INFO,
-    filename="parselog.txt"
-)
+# import logging
+# logging.basicConfig(
+#     level=logging.INFO,
+#     filename="parselog.txt"
+# )
 
 def p_statement(p):
     """statement : echo options string"""
@@ -45,5 +45,5 @@ def p_error(p):
 
 parser = yacc.yacc()
 x = input("enter : ")
-lexer.input(x)
-parser.parse(x, debug=logging.getLogger())
+# lexer.input(x)
+parser.parse(x)
