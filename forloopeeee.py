@@ -29,7 +29,7 @@ def p_command(p):
     '''
 
 def p_error(p):
-    print("Syntax error in output!")
+    print("Syntax error in input!")
 
 parser = yacc.yacc()
 
