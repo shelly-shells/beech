@@ -1,0 +1,10 @@
+from ply import lex
+
+tokens = ("CHMOD", "OPTION", "FILE")
+
+def t_CHMOD(t):
+    r'chmod'
+    return t
+
+def t_OPTION(t):
+    r'(\[1-7]{1,2,3})|[a|(ugx)+{3}]\[+|-] '
