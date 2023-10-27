@@ -47,10 +47,10 @@ def t_error(t):
 
 lexer = lex.lex()
 
-x= "for i in 1 2 3 do i=i+1 done"
-lexer.input(x)
-while True:
-    tok = lexer.token()
-    if not tok:
-        break  # No more input
-    print(tok)
+# x= "for i in 1 2 3 do i=i+1 done"
+# lexer.input(x)
+# while True:
+#     tok = lexer.token()
+#     if not tok:
+#         break  # No more input
+#     print(tok)
