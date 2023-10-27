@@ -7,18 +7,22 @@ from echoLex import *
 #     filename="parselog.txt"
 # )
 
+
 def p_statement(p):
     """statement : echo options string"""
     print("valid input")
     pass
 
+
 def p_echo(p):
     """echo : ECHO"""
     pass
 
+
 def p_string(p):
-    """string : strings string"""
+    """string : STRING"""
     pass
+
 
 def p_options(p):
     """options : option options
@@ -30,9 +34,6 @@ def p_empty(p):
     """empty :"""
     pass
 
-def p_strings(p):
-    """strings : STRING"""
-    pass
 
 def p_option(p):
     """option : OPTION"""
@@ -44,5 +45,4 @@ def p_error(p):
 
 parser = yacc.yacc()
 x = input("enter : ")
-# lexer.input(x)
 parser.parse(x)

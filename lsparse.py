@@ -1,43 +1,50 @@
 from ply import yacc
 from lslex import *
 
+
 def p_statement(p):
-    '''statement : ls option directory'''
+    """statement : ls option directory"""
     print("Valid input")
     pass
 
+
 def p_ls(p):
-    '''ls : LS'''
+    """ls : LS"""
     pass
+
 
 def p_option(p):
-    '''option : option options
-                | empty'''
+    """option : option options
+    | empty"""
     pass
+
 
 def p_directory(p):
-    '''directory : directories directory
-                   | empty'''
+    """directory : directories directory
+    | empty"""
     pass
+
 
 def p_empty(p):
-    '''empty :'''
+    """empty :"""
     pass
+
 
 def p_options(p):
-    '''options : OPTION 
-                | OPTION_LONG'''
+    """options : OPTION
+    | OPTION_LONG"""
     pass
 
+
 def p_directories(p):
-    '''directories : DIRECTORY'''
+    """directories : DIRECTORY"""
     pass
+
 
 def p_error(p):
     print("Invalid syntax")
-    
-    
+
+
 parser = yacc.yacc()
 x = input("enter : ")
-# lexer.input(x)
 parser.parse(x)
