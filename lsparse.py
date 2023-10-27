@@ -1,10 +1,5 @@
 from ply import yacc
-from lslex import *
-import logging
-
-logging.basicConfig(
-    filename="parser.log", level=logging.INFO, format="%(asctime)s - %(message)s"
-)
+from lslex import tokens
 
 
 def p_statement(p):
@@ -20,13 +15,13 @@ def p_ls(p):
 
 def p_option(p):
     """option : OPTION
-    | OPTION_LONG
-    | empty"""
+    | OPTION_LONG"""
     pass
 
 
 def p_directory(p):
-    """directory : DIRECTORY"""
+    """directory : DIRECTORY
+    | empty"""
     pass
 
 
@@ -41,4 +36,4 @@ def p_error(p):
 
 parser = yacc.yacc()
 x = input("enter : ")
-parser.parse(x, debug=logging)
+parser.parse(x)

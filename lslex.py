@@ -9,7 +9,7 @@ def t_LS(t):
 
 
 def t_OPTION(t):
-    r"-[alhRtsrudi]+"
+    r"-[acdghilporstuFDRS]+"
     return t
 
 
@@ -32,12 +32,12 @@ def t_newline(t):
 
 
 def t_error(t):
-    print(f"Illegal character '{t.value[0]}'")
+    # print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
 
 lexer = lex.lex()
-# lexer.input('ls --help /home/sus/hwow')
+# lexer.input("ls -lax")
 # while True:
 #     tok = lexer.token()
 #     if not tok:
