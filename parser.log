@@ -1,0 +1,13 @@
+2023-10-27 09:41:21,466 - PLY: PARSE DEBUG START
+2023-10-27 09:41:21,467 - Action : Reduce rule [ls -> LS] with ['ls'] and goto state 2
+2023-10-27 09:41:21,468 - Result : <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,468 - Action : Reduce rule [empty -> <empty>] with [] and goto state 7
+2023-10-27 09:41:21,468 - Result : <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,468 - Action : Reduce rule [option -> empty] with [None] and goto state 4
+2023-10-27 09:41:21,469 - Result : <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,469 - Action : Reduce rule [directory -> DIRECTORY] with ['/home'] and goto state 8
+2023-10-27 09:41:21,469 - Result : <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,469 - Action : Reduce rule [statement -> ls option directory] with [None,None,None] and goto state 1
+2023-10-27 09:41:21,469 - Result : <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,469 - Done   : Returning <NoneType @ 0x957cc0> (None)
+2023-10-27 09:41:21,470 - PLY: PARSE DEBUG END
