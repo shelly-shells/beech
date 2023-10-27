@@ -33,7 +33,7 @@ def t_error(t):
 
 
 lexer = lex.lex()
-# lexer.input('echo -n -e "hi"')
+# lexer.input('echo -f hi')
 # while True:
 #     tok = lexer.token()
 #     if not tok:

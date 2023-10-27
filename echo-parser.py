@@ -9,6 +9,7 @@ from echoLex import *
 
 def p_statement(p):
     """statement : echo options string"""
+    print("valid input")
     pass
 
 def p_echo(p):
@@ -16,23 +17,21 @@ def p_echo(p):
     pass
 
 def p_string(p):
-    """string : STRING"""
+    """string : strings string"""
     pass
-
 
 def p_options(p):
     """options : option options
     | empty"""
-    # if len(p) > 1:
-    #     if not hasattr(p[-1], "append"):
-    #         p[-1] = [p[-1]]
-    #         p[-1].append(p[1])
-    # else:
-    #     p[0] = []
+    pass
 
 
 def p_empty(p):
     """empty :"""
+    pass
+
+def p_strings(p):
+    """strings : STRING"""
     pass
 
 def p_option(p):

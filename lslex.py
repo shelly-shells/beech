@@ -1,13 +1,17 @@
 from ply import lex
 
-tokens = ("LS", "OPTION", "DIRECTORY")
+tokens = ("LS", "OPTION", "DIRECTORY", "OPTION_LONG")
 
 def t_LS(t):
     r'ls'
     return t
 
 def t_OPTION(t):
-    r'-[alhRtsrudi]+|--help|--version|--all|--si'
+    r'-[alhRtsrudi]+'
+    return t
+
+def t_OPTION_LONG(t):
+    r'--help|--version|--all|--si'
     return t
 
 def t_DIRECTORY(t):
@@ -25,9 +29,9 @@ def t_error(t):
     t.lexer.skip(1)
     
 lexer = lex.lex()
-# lexer.input('ls /home/sus/hwow')
-# while True:
-#     tok = lexer.token()
-#     if not tok:
-#         break  # No more input
-#     print(tok)
+lexer.input('ls --help /home/sus/hwow')
+while True:
+    tok = lexer.token()
+    if not tok:
+        break  # No more input
+    print(tok)

@@ -3,6 +3,7 @@ from chmodlex import *
 
 def p_statement(p):
     '''statement : chmod option file'''
+    print("valid input")
     pass
 
 def p_chmod(p):

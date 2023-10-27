@@ -3,6 +3,7 @@ from lslex import *
 
 def p_statement(p):
     '''statement : ls option directory'''
+    print("Valid input")
     pass
 
 def p_ls(p):
@@ -24,7 +25,8 @@ def p_empty(p):
     pass
 
 def p_options(p):
-    '''options : OPTION'''
+    '''options : OPTION 
+                | OPTION_LONG'''
     pass
 
 def p_directories(p):
