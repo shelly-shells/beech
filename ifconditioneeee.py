@@ -74,6 +74,7 @@ def p_empty(p):
 def p_error(p):
     print("Syntax error in input!")
 
-data = input("Enter something: ")
+
 parser = yacc.yacc()
+data = input("Enter something: ")
 result = parser.parse(data)
