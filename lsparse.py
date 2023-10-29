@@ -15,7 +15,8 @@ def p_ls(p):
 
 def p_option(p):
     """option : OPTION
-    | OPTION_LONG"""
+    | OPTION_LONG
+    | empty"""
     pass
 
 
