@@ -37,9 +37,4 @@ def t_error(t):
 
 
 lexer = lex.lex()
-lexer.input("echo hi > file.txt")
-while True:
-    tok = lexer.token()
-    if not tok:
-        break  # No more input
-    print(tok)
+

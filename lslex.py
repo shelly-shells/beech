@@ -32,14 +32,8 @@ def t_newline(t):
 
 
 def t_error(t):
-    # print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
 
 lexer = lex.lex()
-# lexer.input("ls -lax")
-# while True:
-#     tok = lexer.token()
-#     if not tok:
-#         break  # No more input
-#     print(tok)
+

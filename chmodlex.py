@@ -27,14 +27,8 @@ def t_newline(t):
 
 
 def t_error(t):
-    # print(f"Illegal character '{t.value[0]}'")
     t.lexer.skip(1)
 
 
 lexer = lex.lex()
-# lexer.input("chmod +rwx hi.s")
-# while True:
-#     x = lexer.token()
-#     if not x:
-#         break
-#     print(x)
+
