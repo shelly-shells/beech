@@ -5,12 +5,14 @@ def p_program(p):
     '''
     program : statement 
     '''
-
+    print("valid input")
+    
 def p_statement(p):
     '''
     statement : if_statement 
               | other_statement
     '''
+    
 
 def p_if_statement(p):
     '''
@@ -72,9 +74,7 @@ def p_empty(p):
 def p_error(p):
     print("Syntax error in input!")
 
-data = input("Enter something: ")
 
 parser = yacc.yacc()
+data = input("Enter something: ")
 result = parser.parse(data)
-
-print(result)

@@ -4,7 +4,9 @@ from forLex import tokens
 def p_for_loop(p):
     '''
         for_loop : FOR VAR IN values DO commands DONE 
+        
     '''
+    print("valid input")
 
 def p_values(p):
     '''
@@ -32,9 +34,7 @@ def p_error(p):
     print("Syntax error in input!")
 
 parser = yacc.yacc()
-
 data = input("Enter something: ")
 result = parser.parse(data)
 
-print(result)
 
